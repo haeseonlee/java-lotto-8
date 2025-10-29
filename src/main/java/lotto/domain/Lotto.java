@@ -34,7 +34,7 @@ public class Lotto {
         numbers.stream()
                 .filter(number -> number < MIN_NUMBER || number > MAX_NUMBER)
                 .forEach(number -> {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException(ErrorMessage.INVALID_LOTTO_NUMBER_RANGE.getMessage());
                 });
     }
 
