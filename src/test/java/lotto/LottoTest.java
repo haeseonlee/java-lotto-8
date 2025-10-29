@@ -76,4 +76,11 @@ class LottoTest {
         int purchaseAmount = 8000;
         assertThat(TicketGenerator.generate(purchaseAmount)).isEqualTo(8);
     }
+
+    @DisplayName("구입 금액이 1,000원 단위가 아니면 예외가 발생한다.")
+    @Test
+    void 구입_금액_1000원_단위_아니면_예외_발생() {
+        assertThatThrownBy(() -> TicketGenerator.generate(8800))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
