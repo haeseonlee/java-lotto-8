@@ -61,4 +61,11 @@ class LottoTest {
         assertThatThrownBy(() -> WinningNumbersParser.parse(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("당첨 번호가 6자리가 아닌 경우 예외가 발생한다")
+    @Test
+    void 당첨번호_6자리_아니면_예외_발생() {
+        assertThatThrownBy(() -> WinningNumbersParser.parse("1,2,3,4,5,6,7"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
