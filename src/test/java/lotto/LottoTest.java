@@ -39,4 +39,11 @@ class LottoTest {
         assertThatThrownBy(() -> NumberConverter.convert(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("입력값이 숫자가 아니면 예외가 발생한다.")
+    @Test
+    void 입력값_숫자_아니면_예외_발생() {
+        assertThatThrownBy(() -> NumberConverter.convert("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
