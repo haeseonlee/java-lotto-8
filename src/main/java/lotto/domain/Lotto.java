@@ -13,7 +13,7 @@ public class Lotto {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
-        validate(numbers);
+        validateCorrectSize(numbers);
         this.numbers = numbers;
     }
 
@@ -22,7 +22,7 @@ public class Lotto {
         return new Lotto(randomNumbers);
     }
 
-    private void validate(List<Integer> numbers) {
+    private void validateCorrectSize(List<Integer> numbers) {
         if (numbers.size() != REGULAR_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_LOTTO_NUMBER_COUNT.getMessage());
         }
