@@ -1,7 +1,7 @@
 package lotto.util;
 
 public enum ErrorMessage {
-    EMPTY_INPUT("입력값이 비어있습니다.");
+    EMPTY_INPUT("입력값이 비어있습니다. 다시 입력해 주세요.");
 
     private final String message;
 
