@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.util.NumberConverter;
+import lotto.util.TicketGenerator;
 import lotto.util.WinningNumbersParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -67,5 +68,12 @@ class LottoTest {
     void 당첨번호_6자리_아니면_예외_발생() {
         assertThatThrownBy(() -> WinningNumbersParser.parse("1,2,3,4,5,6,7"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("구입 금액만큼 로또를 발권할 수 있는 티켓을 생성한다")
+    @Test
+    void 구입_금액만큼_로또_티켓_생성() {
+        int purchaseAmount = 8000;
+        assertThat(TicketGenerator.generate(purchaseAmount)).isEqualTo(8);
     }
 }
