@@ -31,7 +31,7 @@
     * [x] 로또 번호가 6자리가 아닌 경우 `IllegalArgumentException`이 발생한다.
     * [x] 로또 번호가 1 ~ 45 이내의 숫자가 아닌 경우 `IllegalArgumentException`이 발생한다.
     * [x] 로또 번호에 중복된 숫자가 존재하는 경우 `IllegalArgumentException`이 발생한다. 
-* [] 생성된 로또 번호를 반환한다.
+* [x] 생성된 로또 번호를 반환한다.
 
 ### 티켓 개수에 따른 로또 생성 기능 구현
 
