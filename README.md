@@ -18,7 +18,7 @@
 
 * [x] 문자열을 쉼표(,) 기준으로 구분하여 숫자 형태로 저장 후 반환한다.
     * [x] 입력값이 비어있으면 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
-    * [] 당첨 번호가 6자리가 아닌 경우 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
+    * [x] 당첨 번호가 6자리가 아닌 경우 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
 
 ### 구입 금액에 따른 티켓 생성 기능 구현
 
