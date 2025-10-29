@@ -54,4 +54,11 @@ class LottoTest {
         String winningNumbers = "1,2,3,4,5,6";
         assertThat(List.of(1, 2, 3, 4, 5, 6)).isEqualTo(WinningNumbersParser.parse(winningNumbers));
     }
+
+    @DisplayName("당첨 번호가 비어있으면 예외가 발생한다")
+    @Test
+    void 당첨번호_비어있으면_예외_발생() {
+        assertThatThrownBy(() -> WinningNumbersParser.parse(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
