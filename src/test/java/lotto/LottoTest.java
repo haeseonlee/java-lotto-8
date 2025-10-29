@@ -1,5 +1,6 @@
 package lotto;
 
+import lotto.domain.Lotto;
 import lotto.util.NumberConverter;
 import lotto.util.TicketGenerator;
 import lotto.util.WinningNumbersParser;
