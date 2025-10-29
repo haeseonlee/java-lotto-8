@@ -14,6 +14,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validateCorrectSize(numbers);
+        validateCorrectRange(numbers);
         this.numbers = numbers;
     }
 
@@ -26,6 +27,14 @@ public class Lotto {
         if (numbers.size() != REGULAR_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_LOTTO_NUMBER_COUNT.getMessage());
         }
+    }
+
+    private void validateCorrectRange(List<Integer> numbers) {
+        numbers.stream()
+                .filter(number -> number < MIN_NUMBER || number > MAX_NUMBER)
+                .forEach(number -> {
+                    throw new IllegalArgumentException();
+                });
     }
 
 }
