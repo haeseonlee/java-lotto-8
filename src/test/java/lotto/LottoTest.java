@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.util.NumberConverter;
+import lotto.util.WinningNumbersParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -45,5 +46,12 @@ class LottoTest {
     void 입력값_숫자_아니면_예외_발생() {
         assertThatThrownBy(() -> NumberConverter.convert("abc"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("입력받은 당첨 번호를 숫자 리스트에 저장한다.")
+    @Test
+    void 당첨번호_리스트에_저장() {
+        String winningNumbers = "1,2,3,4,5,6";
+        assertThat(List.of(1, 2, 3, 4, 5, 6)).isEqualTo(WinningNumbersParser.parse(winningNumbers));
     }
 }
