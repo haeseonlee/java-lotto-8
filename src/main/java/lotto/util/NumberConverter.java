@@ -6,6 +6,7 @@ public class NumberConverter {
     }
 
     public static int convert(String input) {
+        validateNotEmptyInput(input);
         return Integer.parseInt(input);
     }
 

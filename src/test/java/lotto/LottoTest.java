@@ -1,5 +1,6 @@
 package lotto;
 
+import lotto.util.NumberConverter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +22,10 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @DisplayName("구입 금액이 비어있으면 예외가 발생한다.")
+    @Test
+    void 구입_금액이_비어있으면_예외_발생() {
+        assertThatThrownBy(() -> NumberConverter.convert(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
