@@ -6,8 +6,12 @@ public class NumberConverter {
     }
 
     public static int convert(String input) {
-        validateNotEmptyInput(input);
-        return Integer.parseInt(input);
+        try {
+            validateNotEmptyInput(input);
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_NUMERIC_INPUT.getMessage());
+        }
     }
 
     public static void validateNotEmptyInput(String input) {

@@ -12,7 +12,7 @@
 
 * [x] 입력받은 구입 금액, 보너스 번호를 숫자로 변환하여 반환한다.
     * [x] 입력값이 비어있으면 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
-    * [] 구입 금액과 보너스 번호가 숫자가 아니면 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
+    * [x] 구입 금액과 보너스 번호가 숫자가 아니면 `IllegalArgumentException`을 발생시키고, 다시 입력 받는다.
 
 ### 입력한 당첨 번호 저장 기능 구현
 
