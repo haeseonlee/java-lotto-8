@@ -28,7 +28,7 @@
 ### 로또 생성 기능 구현
 
 * [x] 6개의 로또 번호를 생성해 저장한다.
-    * [] 로또 번호가 6자리가 아닌 경우 `IllegalArgumentException`이 발생한다.
+    * [x] 로또 번호가 6자리가 아닌 경우 `IllegalArgumentException`이 발생한다.
     * [] 로또 번호가 1 ~ 45 이내의 숫자가 아닌 경우 `IllegalArgumentException`이 발생한다.
 * [] 생성된 로또 번호를 반환한다.
 
