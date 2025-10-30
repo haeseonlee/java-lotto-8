@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.domain.Lotto;
+import lotto.service.LottoGenerator;
 import lotto.util.NumberConverter;
 import lotto.util.TicketGenerator;
 import lotto.util.WinningNumbersParser;
@@ -10,6 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -90,5 +92,18 @@ class LottoTest {
     void 구입_금액_1000원_단위_아니면_예외_발생() {
         assertThatThrownBy(() -> TicketGenerator.generate(8800))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("티켓 장수만큼 로또가 생성되었는지 확인한다.")
+    @Test
+    void 티켓_장수만큼_로또_생성() {
+        LottoGenerator lottoGenerator = new LottoGenerator();
+        int ticketAmount = 8;
+
+        List<Lotto> lottos = lottoGenerator.generate(ticketAmount);
+
+        assertThat(lottos)
+                .hasSize(ticketAmount)
+                .allMatch(Objects::nonNull);
     }
 }
