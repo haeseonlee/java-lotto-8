@@ -16,21 +16,5 @@ public class WinningLotto {
         this.bonusNumber = bonusNumber;
     }
 
-    private void validateDuplicateNumber(List<Integer> winningNumbers) {
-        if (winningNumbers.size() != winningNumbers.stream().distinct().count()) {
-            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_WINNING_NUMBER.getMessage());
-        }
-    }
 
-    private void validateNumberRage(int number) {
-        if (number < MIN_NUMBER || number > MAX_NUMBER) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_RANGE.getMessage());
-        }
-    }
-
-    private void validateDuplicateBonusNumber(List<Integer> winningNumbers, int bonusNumber) {
-        if (winningNumbers.contains(bonusNumber)) {
-            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_BONUS_NUMBER.getMessage());
-        }
-    }
 }

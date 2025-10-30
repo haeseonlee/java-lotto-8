@@ -6,17 +6,17 @@ import java.util.List;
 public class WinningNumbersParser {
 
     private static final String DELIMITER = ",";
-    private static final int REGULAR_LENGTH = 6;
 
     private WinningNumbersParser() {
     }
 
     public static List<Integer> parse(String input) {
         validateNotEmptyInput(input);
-        validateCorrectLength(input);
-        return Arrays.stream(input.split(DELIMITER))
+        List<Integer> winningNumbers = Arrays.stream(input.split(DELIMITER))
                 .map(Integer::parseInt)
                 .toList();
+        validateWinningNumbers(winningNumbers);
+        return winningNumbers;
     }
 
     private static void validateNotEmptyInput(String input) {
@@ -25,10 +25,10 @@ public class WinningNumbersParser {
         }
     }
 
-    private static void validateCorrectLength(String input) {
-        if (input.split(DELIMITER).length != REGULAR_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_SIX_COUNT.getMessage());
-        }
+    private static void validateWinningNumbers(List<Integer> winningNumbers) {
+        LottoValidator.validateCorrectSize(winningNumbers, ErrorMessage.NOT_SIX_COUNT);
+        LottoValidator.validateCorrectRange(winningNumbers, ErrorMessage.INVALID_WINNING_NUMBER_RANGE);
+        LottoValidator.validateDuplicateNumber(winningNumbers, ErrorMessage.DUPLICATE_WINNING_NUMBER);
     }
 
 }
