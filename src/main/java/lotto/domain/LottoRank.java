@@ -8,13 +8,13 @@ public enum LottoRank {
     MATCH6(6, false, 2_000_000_000, "6개 일치 (2,000,000,000원)"),
     NONE_MATCH(0, false, 0, "낙첨");
 
-    private final int count;
+    private final int matchCount;
     private final boolean bonusMatch;
     private final int prize;
     private final String message;
 
     LottoRank(int count, boolean bonusMatch, int prize, String message) {
-        this.count = count;
+        this.matchCount = count;
         this.bonusMatch = bonusMatch;
         this.prize = prize;
         this.message = message;
@@ -26,5 +26,14 @@ public enum LottoRank {
 
     public String getMessage() {
         return message;
+    }
+
+    public LottoRank getRank(int matchCount, boolean bonusMatch) {
+        for (LottoRank rank : LottoRank.values()) {
+            if (rank.matchCount == matchCount && rank.bonusMatch == bonusMatch) {
+                return rank;
+            }
+        }
+        return NONE_MATCH;
     }
 }
