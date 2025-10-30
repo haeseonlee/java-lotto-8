@@ -19,6 +19,12 @@ public class WinningLotto {
         this.bonusNumber = bonusNumber;
     }
 
+    public int countMatchingNumbers(Lotto lotto) {
+        return (int) winningNumbers.stream()
+                .filter(winningNumber -> lotto.getNumbers().contains(winningNumber))
+                .count();
+    }
+
     private void validateBonusNumberRange(int bonusNumber) {
         if (bonusNumber < MIN_RANGE_NUMBER || bonusNumber > MAX_RANGE_NUMBER) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_RANGE.getMessage());
