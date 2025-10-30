@@ -131,4 +131,13 @@ class LottoTest {
 
         assertThat(winningLotto.countMatchingNumbers(lotto)).isEqualTo(3);
     }
+
+    @DisplayName("보너스 번호가 로또 번호에 포함되는지 여부를 반환한다.")
+    @Test
+    void 보너스번호_로또번호_포함여부_반환() {
+        WinningLotto winningLotto = new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 7);
+        Lotto lotto = new Lotto(List.of(1, 2, 3, 7, 9, 10));
+
+        assertThat(winningLotto.isBonusMatch(lotto)).isEqualTo(true);
+    }
 }
