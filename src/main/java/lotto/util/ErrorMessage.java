@@ -7,7 +7,8 @@ public enum ErrorMessage {
     NOT_THOUSAND_UNIT("구입 금액은 1,000원 단위입니다. 다시 입력해 주세요."),
     INVALID_LOTTO_NUMBER_COUNT("로또 번호는 6자리여야 합니다."),
     INVALID_LOTTO_NUMBER_RANGE("로또 번호는 1 ~ 45 이내의 숫자로 이루어져야합니다."),
-    DUPLICATE_LOTTO_NUMBER("로또 번호는 중복될 수 없습니다."),;
+    DUPLICATE_LOTTO_NUMBER("로또 번호는 중복될 수 없습니다."),
+    INVALID_WINNING_NUMBER_RANGE("당첨 번호와 보너스 번호는 1 ~ 45 이내의 숫자로 이루어져야합니다. 다시 입력해 주세요.");
 
     private final String message;
 
