@@ -25,6 +25,10 @@ public class WinningLotto {
                 .count();
     }
 
+    public boolean isBonusMatch(Lotto lotto) {
+        return lotto.getNumbers().contains(bonusNumber);
+    }
+
     private void validateBonusNumberRange(int bonusNumber) {
         if (bonusNumber < MIN_RANGE_NUMBER || bonusNumber > MAX_RANGE_NUMBER) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_RANGE.getMessage());
