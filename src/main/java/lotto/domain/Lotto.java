@@ -44,7 +44,7 @@ public class Lotto {
 
     private void validateNotDuplicateNumber(List<Integer> numbers) {
         if (numbers.size() != numbers.stream().distinct().count()) {
-            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NUMBER.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_LOTTO_NUMBER.getMessage());
         }
     }
 
