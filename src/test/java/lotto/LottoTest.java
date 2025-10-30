@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.domain.Lotto;
+import lotto.domain.WinningLotto;
 import lotto.service.LottoGenerator;
 import lotto.util.NumberConverter;
 import lotto.util.TicketGenerator;
@@ -105,5 +106,13 @@ class LottoTest {
         assertThat(lottos)
                 .hasSize(ticketAmount)
                 .allMatch(Objects::nonNull);
+    }
+
+    @DisplayName("당첨 번호 내에 보너스 번호와 같은 숫자가 존재하면 예외가 발생한다.")
+    @Test
+    void 당첨_번호와_보너스번호_겹치면_예외_발생() {
+
+        assertThatThrownBy(() -> new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 6))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
