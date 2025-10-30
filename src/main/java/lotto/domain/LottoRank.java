@@ -19,4 +19,12 @@ public enum LottoRank {
         this.prize = prize;
         this.message = message;
     }
+
+    public int getPrize() {
+        return prize;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
