@@ -32,5 +32,8 @@ public class Lotto {
         LottoValidator.validateDuplicateNumber(numbers, ErrorMessage.DUPLICATE_LOTTO_NUMBER);
     }
 
-
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }
