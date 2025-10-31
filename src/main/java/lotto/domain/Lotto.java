@@ -5,6 +5,7 @@ import lotto.util.ErrorMessage;
 import lotto.util.LottoValidator;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static lotto.util.LottoConstants.*;
 
@@ -23,6 +24,7 @@ public class Lotto {
 
     public static Lotto generate() {
         List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER, REGULAR_SIZE);
+        randomNumbers = randomNumbers.stream().sorted().collect(Collectors.toList());
         return new Lotto(randomNumbers);
     }
 
