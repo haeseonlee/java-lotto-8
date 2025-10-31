@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.within;
 
 public class LottoResultTest {
 
@@ -22,9 +23,9 @@ public class LottoResultTest {
     @BeforeEach
     void setUp() {
         winningLotto = new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 7);
-        lottos = List.of(new Lotto(List.of(1, 2, 3, 8, 9, 10)), // 3등
+        lottos = List.of(new Lotto(List.of(1, 2, 3, 8, 9, 10)), // 5등
                 new Lotto(List.of(1, 2, 3, 4, 11, 12)), // 4등
-                new Lotto(List.of(1, 2, 3, 4, 5, 8))); // 5등
+                new Lotto(List.of(1, 2, 3, 4, 5, 8))); // 3등
         lottoResult = new LottoResult();
     }
 
@@ -46,4 +47,9 @@ public class LottoResultTest {
 
         assertThat(totalPrize).isEqualTo(expectedPrize);
     }
+
+    @DisplayName("총 수익률을 구해 반환한다.")
+    @Test
+    void 총_수익률_반환() {
+           }
 }

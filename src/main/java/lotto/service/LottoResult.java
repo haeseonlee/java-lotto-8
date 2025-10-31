@@ -21,7 +21,7 @@ public class LottoResult {
 
     public double getProfitRate(Map<LottoRank, Integer> stats, int purchaseAmount) {
         int totalPrize = getTotalPrize(stats);
-        return (double) (totalPrize / purchaseAmount) * 100;
+        return ((double) totalPrize / purchaseAmount) * 100;
     }
 
     public int getTotalPrize(Map<LottoRank, Integer> stats) {
