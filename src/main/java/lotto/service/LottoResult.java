@@ -18,4 +18,14 @@ public class LottoResult {
         }
         return stats;
     }
+
+    public int getTotalPrize(Map<LottoRank, Integer> stats) {
+        int totalPrize = 0;
+        for (Map.Entry<LottoRank, Integer> entry : stats.entrySet()) {
+            LottoRank rank = entry.getKey();
+            Integer count = entry.getValue();
+            totalPrize += rank.getPrize() * count;
+        }
+        return totalPrize;
+    }
 }
