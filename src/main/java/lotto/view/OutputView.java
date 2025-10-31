@@ -22,7 +22,9 @@ public class OutputView {
         System.out.println("당첨 통계\n---");
         for (LottoRank rank : LottoRank.values()) {
             Integer count = result.getOrDefault(rank, 0);
-            System.out.println(rank.getMessage() + " - " + count + "개");
+            if (rank != LottoRank.NONE_MATCH) {
+                System.out.println(rank.getMessage() + " - " + count + "개");
+            }
         }
     }
 
