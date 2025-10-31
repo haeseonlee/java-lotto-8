@@ -24,7 +24,7 @@ public class LottoResultTest {
         winningLotto = new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 7);
         lottos = List.of(new Lotto(List.of(1, 2, 3, 8, 9, 10)), // 3등
                 new Lotto(List.of(1, 2, 3, 4, 11, 12)), // 4등
-                new Lotto(List.of(1, 2, 3, 4, 5, 8)));
+                new Lotto(List.of(1, 2, 3, 4, 5, 8))); // 5등
         lottoResult = new LottoResult();
     }
 
@@ -34,5 +34,16 @@ public class LottoResultTest {
         Map<LottoRank, Integer> result = lottoResult.getLottoResult(winningLotto, lottos);
 
         assertThat(result).containsKeys(LottoRank.MATCH3, LottoRank.MATCH4, LottoRank.MATCH5);
+    }
+
+    @DisplayName("당첨된 로또의 총 상금을 구해 반환한다.")
+    @Test
+    void 당첨_로또_총_상금_반환() {
+        Map<LottoRank, Integer> result = lottoResult.getLottoResult(winningLotto, lottos);
+
+        int totalPrize = lottoResult.getTotalPrize(result);
+        int expectedPrize = LottoRank.MATCH3.getPrize() + LottoRank.MATCH4.getPrize() + LottoRank.MATCH5.getPrize();
+
+        assertThat(totalPrize).isEqualTo(expectedPrize);
     }
 }
