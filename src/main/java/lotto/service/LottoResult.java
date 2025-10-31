@@ -19,6 +19,11 @@ public class LottoResult {
         return stats;
     }
 
+    public double getProfitRate(Map<LottoRank, Integer> stats, int purchaseAmount) {
+        int totalPrize = getTotalPrize(stats);
+        return (double) (totalPrize / purchaseAmount) * 100;
+    }
+
     public int getTotalPrize(Map<LottoRank, Integer> stats) {
         int totalPrize = 0;
         for (Map.Entry<LottoRank, Integer> entry : stats.entrySet()) {
