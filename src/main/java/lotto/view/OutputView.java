@@ -25,4 +25,8 @@ public class OutputView {
             System.out.println(rank.getMessage() + " - " + count + "개");
         }
     }
+
+    public void printProfitRate(double profitRate) {
+        System.out.printf("총 수익률은 %.1f%%입니다.", profitRate);
+    }
 }
