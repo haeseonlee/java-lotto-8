@@ -51,5 +51,10 @@ public class LottoResultTest {
     @DisplayName("총 수익률을 구해 반환한다.")
     @Test
     void 총_수익률_반환() {
-           }
+        Map<LottoRank, Integer> result = lottoResult.getLottoResult(winningLotto, lottos);
+        int totalAmount = 3000;
+
+        double profitRate = lottoResult.getProfitRate(result, totalAmount);
+        assertThat(profitRate).isCloseTo(51833.3, within(0.1));
+    }
 }
