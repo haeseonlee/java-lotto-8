@@ -9,17 +9,18 @@ import java.util.Map;
 public class OutputView {
 
     public void printTicketAmount(int ticketAmount) {
-        System.out.printf("%d개를 구매했습니다.", ticketAmount);
+        System.out.printf("\n%d개를 구매했습니다.\n", ticketAmount);
     }
 
     public void printAllLottos(List<Lotto> lottos) {
         for (Lotto lotto : lottos) {
             System.out.println(lotto.toString());
         }
+        System.out.println();
     }
 
     public void printWinningStatistics(Map<LottoRank, Integer> result) {
-        System.out.println("당첨 통계\n---");
+        System.out.println("\n당첨 통계\n---");
         for (LottoRank rank : LottoRank.values()) {
             Integer count = result.getOrDefault(rank, 0);
             if (rank != LottoRank.NONE_MATCH) {
