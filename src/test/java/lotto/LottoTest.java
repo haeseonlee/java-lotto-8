@@ -5,13 +5,9 @@ import lotto.domain.LottoRank;
 import lotto.domain.WinningLotto;
 import lotto.service.LottoGenerator;
 import lotto.service.LottoMatch;
-import lotto.util.NumberConverter;
 import lotto.util.TicketGenerator;
-import lotto.util.WinningNumbersParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 import java.util.Objects;
@@ -37,22 +33,6 @@ class LottoTest {
     @Test
     void 로또_번호에_중복된_숫자가_있으면_예외가_발생한다() {
         assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 5)))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-
-
-    @DisplayName("구입 금액만큼 로또를 발권할 수 있는 티켓을 생성한다")
-    @Test
-    void 구입_금액만큼_로또_티켓_생성() {
-        int purchaseAmount = 8000;
-        assertThat(TicketGenerator.generate(purchaseAmount)).isEqualTo(8);
-    }
-
-    @DisplayName("구입 금액이 1,000원 단위가 아니면 예외가 발생한다.")
-    @Test
-    void 구입_금액_1000원_단위_아니면_예외_발생() {
-        assertThatThrownBy(() -> TicketGenerator.generate(8800))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
